@@ -24,4 +24,29 @@ body {
   box-sizing: border-box;
 }
 
+.hamburger {
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.hamburger__bar {
+  width: 100%;
+  height: 4px;
+  background: white;
+}
+.hamburger__bar:not(:last-child) {
+  margin-bottom: 0.3rem;
+}
+
+.progress {
+  width: 100%;
+  height: 1rem;
+  background: white;
+}
+.progress__inner {
+  background: #9f39b5;
+  height: 100%;
+  width: 50%;
+}
+
 /*# sourceMappingURL=main.css.map */
