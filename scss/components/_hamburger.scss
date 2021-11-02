@@ -1,0 +1,14 @@
+.hamburger {
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    &__bar {
+        width: 100%;
+        height: 4px;
+        background: white;
+        
+        &:not(:last-child) {
+            margin-bottom: .3rem;
+        }
+    }
+}
