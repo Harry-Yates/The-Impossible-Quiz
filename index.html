@@ -15,28 +15,30 @@
             <div class="hamburger__bar"></div>
         </div>
     </nav>
-    <main class="quiz container">
-        <!-- Placeholder div for SVG-circle with animation -->
-        <div class="timer">5</div> 
-        <div class="quiz__question-box">
-            <div class="quiz__question">Question?</div>
-            <div class="progress">
-                <div class="progress__inner"></div>
+    <main class="container">
+        <section class="quiz hide">
+            <!-- Placeholder div for SVG-circle with animation -->
+            <div class="countdown">5</div> 
+            <div class="quiz__question-box">
+                <div class="quiz__question">Question?</div>
+                <div class="progress">
+                    <div class="progress__inner"></div>
+                </div>
+                <div class="quiz__tracker">7/10</div>
             </div>
-            <div class="quiz__tracker">7/10</div>
-        </div>
-        <div class="quiz__choices">
-            <button class="btn quiz__choice">one</button>
-            <button class="btn quiz__choice">two</button>
-            <button class="btn quiz__choice">three</button>
-            <button class="btn quiz__choice">four</button>
-        </div>
+            <div class="quiz__choices">
+                <button class="btn quiz__choice">one</button>
+                <button class="btn quiz__choice">two</button>
+                <button class="btn quiz__choice">three</button>
+                <button class="btn quiz__choice">four</button>
+            </div>
+        </section>
+        <button id="start-btn">Start</button>
     </main>
     <br class="solid">
     <footer>
         <p>A quiz developed by Time Keepers</p>
     </footer>
-    <!-- <script src="/scripts/app.js"></script> -->
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js" type="module"></script>
     <script src="/scripts/app.js" type="module"></script>
 </body>
