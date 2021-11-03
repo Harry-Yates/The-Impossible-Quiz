@@ -43,6 +43,8 @@ async function startGame() {
   startBtn.classList.add('hide');
   questions = await getQuestions();
 
+  shuffleArray(questions);
+
   // Output first question from array
   nextQuestion();
 }
@@ -130,6 +132,11 @@ function updateProgress() {
   progressInner.style.width = progressToPercent;
   
   quizTracker.innerText = `${currentQuestion}/${questions.length}`;
+}
+
+function shuffleArray(array) {
+  // do something here to shuffle
+  return shuffledArray;
 }
 
 // TODO
