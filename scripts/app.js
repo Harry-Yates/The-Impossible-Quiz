@@ -177,4 +177,6 @@ function shuffleArray(array) {
 // Display progress bar
 
 // SCSS
-// 
+
+
+// Test update for git
