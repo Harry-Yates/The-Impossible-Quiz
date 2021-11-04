@@ -73,12 +73,15 @@ function createModal() {
   let modal = document.createElement('div');
   modal.classList.add('modal');
   
-  // Create button  
+  // Create button and add event listener
   let restartBtn = document.createElement('button');
   restartBtn.classList.add('btn');
   restartBtn.classList.add('restart-btn');
   restartBtn.innerText = 'Restart game';
+  restartBtn.addEventListener('click', restartGame);
+
   modal.appendChild(restartBtn);
+  
   return modal;
 }
 
@@ -106,11 +109,27 @@ function outputQuestion(question) {
       checkIfCorrectAnswer(answer);
       // Increase index of current question
       currentQuestionIndex++;
+
+      // Stop timer
+      clearInterval(interval);
+
+      // Disable click on buttons in wait for next question
+      const answerButtons = document.querySelectorAll('.quiz__choice');
+      answerButtons.forEach(button => {
+        disableButton(button);
+      })
+
       // Set next question
-      nextQuestion();
+      setTimeout(() => {
+        nextQuestion();
+      }, 2000);
     })
     quizChoices.appendChild(answerButton);
   })
+}
+
+function disableButton(button) {
+  button.disabled = true;
 }
 
 function nextQuestion() {
@@ -128,12 +147,8 @@ function nextQuestion() {
     outputQuestion(questions[currentQuestionIndex])
 
   } else {
-    // Open modal
-    // Show score
-    // Display replay button
+    // Open modal when game ended
     showModal();
-    const restartBtn = document.querySelector('.restart-btn');
-    restartBtn.addEventListener('click', restartGame);
     console.log(`end of quiz, you got ${currentScore} correct answers`);
   }
 }
@@ -152,16 +167,27 @@ function timer(time) {
   let secondsToZero = time;
 
   interval = setInterval(() => {
-      if(secondsToZero > 0) {
-        // Output time in DOM
-        countdown.innerText = secondsToZero;
-        secondsToZero--;
-      } else {
-        console.log('time out');
-        countdown.innerText = secondsToZero;
-      // clearInterval(timer);
+    
+    if(secondsToZero > 0) {
+      // Output time in DOM
+      countdown.innerText = secondsToZero;
+      secondsToZero--;
+    } 
+    else {
+      console.log('time out');
+      countdown.innerText = secondsToZero;
+      clearInterval(timer);
       currentQuestionIndex++;
-      nextQuestion();
+
+      const answerButtons = document.querySelectorAll('.quiz__choice');
+      answerButtons.forEach(button => {
+        disableButton(button);
+      })
+
+      // Set next question
+      setTimeout(() => {
+        nextQuestion();
+      }, 2000);
     }
   }, 1000)
 }
