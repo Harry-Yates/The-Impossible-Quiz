@@ -161,9 +161,9 @@ function checkIfCorrectAnswer(answer) {
   }
 }
 
-async function timer(time) {
+function timer(seconds) {
   clearInterval(interval);
-  let secondsToZero = time;
+  let secondsToZero = seconds;
 
   if(secondsToZero > 0) {
     // Output time in DOM
