@@ -132,14 +132,14 @@ function disableButton(button) {
 
 function nextQuestion() {
   // Clear timer interval from running
-  clearInterval(interval);
+  // clearInterval(interval);
 
   // If we have any questions left
   if(currentQuestionIndex < questions.length) {
     // Display question progress
     updateProgress();
     // Start timer running for ten seconds
-    timer(10);
+    timer(5);
 
     // Output current question
     outputQuestion(questions[currentQuestionIndex])
@@ -161,12 +161,14 @@ function checkIfCorrectAnswer(answer) {
   }
 }
 
-function timer(time) {
+async function timer(time) {
+  clearInterval(interval);
   let secondsToZero = time;
-  
+
   if(secondsToZero > 0) {
     // Output time in DOM
     countdown.innerText = secondsToZero;
+    console.log(secondsToZero);
     secondsToZero--;
   } 
 
@@ -175,12 +177,14 @@ function timer(time) {
     if(secondsToZero > 0) {
       // Output time in DOM
       countdown.innerText = secondsToZero;
+      console.log(secondsToZero);
       secondsToZero--;
     } 
     else {
+      clearInterval(interval);
+      console.log(secondsToZero);
       console.log('time out');
       countdown.innerText = secondsToZero;
-      clearInterval(timer);
       currentQuestionIndex++;
 
       const answerButtons = document.querySelectorAll('.quiz__choice');
@@ -195,8 +199,6 @@ function timer(time) {
     }
   }, 1000)
 }
-
-
 
 function updateProgress() {
   const progressInner = document.querySelector('.progress__inner');
