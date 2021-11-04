@@ -80,9 +80,20 @@ function createModal() {
   restartBtn.innerText = 'Restart game';
   restartBtn.addEventListener('click', restartGame);
 
+  // Create your score text
+  let scoreText = document.createElement('p');
+  scoreText.innerText = setScoreText(scoreText);
+
+
+  modal.appendChild(scoreText);
   modal.appendChild(restartBtn);
   
   return modal;
+}
+
+function setScoreText(textContainer) {
+  // Set different text depending on score
+  return `Your score was ${currentScore}😈`;
 }
 
 function showModal() {
