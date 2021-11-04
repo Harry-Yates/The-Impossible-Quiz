@@ -43,10 +43,48 @@ async function startGame() {
   startBtn.classList.add('hide');
   questions = await getQuestions();
 
-  shuffleArray(questions);
+  // shuffleArray(questions);
 
   // Output first question from array
   nextQuestion();
+}
+
+async function restartGame() {
+  // Remove modal
+  const modal = document.querySelector('.modal')
+  modal.remove();
+
+  // Reload questions
+  questions = await getQuestions();
+
+  //Shuffle questions
+  // shuffleArray(questions);
+
+  // Reset question index and score
+  currentQuestionIndex = 0;
+  currentScore = 0;
+
+  // Output first question from array
+  nextQuestion();
+}
+
+function createModal() {
+  // Create modal  
+  let modal = document.createElement('div');
+  modal.classList.add('modal');
+  
+  // Create button  
+  let restartBtn = document.createElement('button');
+  restartBtn.classList.add('btn');
+  restartBtn.classList.add('restart-btn');
+  restartBtn.innerText = 'Restart game';
+  modal.appendChild(restartBtn);
+  return modal;
+}
+
+function showModal() {
+  let modal = createModal();
+  document.querySelector('main').appendChild(modal);
 }
 
 startBtn.addEventListener('click', startGame)
@@ -90,6 +128,12 @@ function nextQuestion() {
     outputQuestion(questions[currentQuestionIndex])
 
   } else {
+    // Open modal
+    // Show score
+    // Display replay button
+    showModal();
+    const restartBtn = document.querySelector('.restart-btn');
+    restartBtn.addEventListener('click', restartGame);
     console.log(`end of quiz, you got ${currentScore} correct answers`);
   }
 }
