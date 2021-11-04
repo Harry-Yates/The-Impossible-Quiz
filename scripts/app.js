@@ -90,8 +90,6 @@ function showModal() {
   document.querySelector('main').appendChild(modal);
 }
 
-startBtn.addEventListener('click', startGame)
-
 function outputQuestion(question) {
   quizChoices.innerHTML = '';
   let q = question.question;
@@ -165,9 +163,15 @@ function checkIfCorrectAnswer(answer) {
 
 function timer(time) {
   let secondsToZero = time;
+  
+  if(secondsToZero > 0) {
+    // Output time in DOM
+    countdown.innerText = secondsToZero;
+    secondsToZero--;
+  } 
 
   interval = setInterval(() => {
-    
+
     if(secondsToZero > 0) {
       // Output time in DOM
       countdown.innerText = secondsToZero;
@@ -192,6 +196,8 @@ function timer(time) {
   }, 1000)
 }
 
+
+
 function updateProgress() {
   const progressInner = document.querySelector('.progress__inner');
   const quizTracker = document.querySelector('.quiz__tracker');
@@ -208,6 +214,8 @@ function shuffleArray(array) {
   // do something here to shuffle
   return shuffledArray;
 }
+
+startBtn.addEventListener('click', startGame)
 
 // TODO
 // At end of game
