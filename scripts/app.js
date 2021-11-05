@@ -43,13 +43,66 @@ async function startGame() {
   startBtn.classList.add("hide");
   questions = await getQuestions();
 
-  shuffleArray(questions);
+  // shuffleArray(questions);
 
   // Output first question from array
   nextQuestion();
 }
 
+kickoff
 startBtn.addEventListener("click", startGame);
+=======
+async function restartGame() {
+  // Remove modal
+  const modal = document.querySelector('.modal')
+  modal.remove();
+
+  // Reload questions
+  questions = await getQuestions();
+
+  //Shuffle questions
+  // shuffleArray(questions);
+
+  // Reset question index and score
+  currentQuestionIndex = 0;
+  currentScore = 0;
+
+  // Output first question from array
+  nextQuestion();
+}
+
+function createModal() {
+  // Create modal  
+  let modal = document.createElement('div');
+  modal.classList.add('modal');
+  
+  // Create button and add event listener
+  let restartBtn = document.createElement('button');
+  restartBtn.classList.add('btn');
+  restartBtn.classList.add('restart-btn');
+  restartBtn.innerText = 'Restart game';
+  restartBtn.addEventListener('click', restartGame);
+
+  // Create your score text
+  let scoreText = document.createElement('p');
+  scoreText.innerText = setScoreText(scoreText);
+
+
+  modal.appendChild(scoreText);
+  modal.appendChild(restartBtn);
+  
+  return modal;
+}
+
+function setScoreText(textContainer) {
+  // Set different text depending on score
+  return `Your score was ${currentScore}😈`;
+}
+
+function showModal() {
+  let modal = createModal();
+  document.querySelector('main').appendChild(modal);
+}
 
 function outputQuestion(question) {
   quizChoices.innerHTML = "";
@@ -68,27 +121,47 @@ function outputQuestion(question) {
       checkIfCorrectAnswer(answer);
       // Increase index of current question
       currentQuestionIndex++;
+
+      // Stop timer
+      clearInterval(interval);
+
+      // Disable click on buttons in wait for next question
+      const answerButtons = document.querySelectorAll('.quiz__choice');
+      answerButtons.forEach(button => {
+        disableButton(button);
+      })
+
       // Set next question
       nextQuestion();
     });
+      setTimeout(() => {
+        nextQuestion();
+      }, 2000);
+    })
     quizChoices.appendChild(answerButton);
   });
 }
 
+function disableButton(button) {
+  button.disabled = true;
+}
+
 function nextQuestion() {
   // Clear timer interval from running
-  clearInterval(interval);
+  // clearInterval(interval);
 
   // If we have any questions left
   if (currentQuestionIndex < questions.length) {
     // Display question progress
     updateProgress();
     // Start timer running for ten seconds
-    timer(10);
+    timer(5);
 
     // Output current question
     outputQuestion(questions[currentQuestionIndex]);
   } else {
+    // Open modal when game ended
+    showModal();
     console.log(`end of quiz, you got ${currentScore} correct answers`);
   }
 }
@@ -103,8 +176,16 @@ function checkIfCorrectAnswer(answer) {
   }
 }
 
-function timer(time) {
-  let secondsToZero = time;
+function timer(seconds) {
+  clearInterval(interval);
+  let secondsToZero = seconds;
+
+  if(secondsToZero > 0) {
+    // Output time in DOM
+    countdown.innerText = secondsToZero;
+    console.log(secondsToZero);
+    secondsToZero--;
+  } 
 
   interval = setInterval(() => {
     if (secondsToZero > 0) {
@@ -115,8 +196,29 @@ function timer(time) {
       console.log("time out");
       countdown.innerText = secondsToZero;
       // clearInterval(timer);
+
+    if(secondsToZero > 0) {
+      // Output time in DOM
+      countdown.innerText = secondsToZero;
+      console.log(secondsToZero);
+      secondsToZero--;
+    } 
+    else {
+      clearInterval(interval);
+      console.log(secondsToZero);
+      console.log('time out');
+      countdown.innerText = secondsToZero;
       currentQuestionIndex++;
-      nextQuestion();
+
+      const answerButtons = document.querySelectorAll('.quiz__choice');
+      answerButtons.forEach(button => {
+        disableButton(button);
+      })
+
+      // Set next question
+      setTimeout(() => {
+        nextQuestion();
+      }, 2000);
     }
   }, 1000);
 }
@@ -149,6 +251,8 @@ function shuffleArray(array) {
 
   return shuffleArray;
 }
+
+startBtn.addEventListener('click', startGame)
 
 // TODO
 // At end of game
