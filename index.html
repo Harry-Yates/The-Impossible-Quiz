@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
     <title>The Impossible Quiz</title>
-</head>
-<body>
-    <nav class="nav-bar">
-        <div class="hamburger">
-            <div class="hamburger__bar"></div>
-            <div class="hamburger__bar"></div>
-            <div class="hamburger__bar"></div>
-        </div>
-    </nav>
+  </head>
+  <body>
     <main class="container">
-        <section class="quiz hide">
-            <!-- Placeholder div for SVG-circle with animation -->
-            <div class="countdown">10</div> 
-            <div class="quiz__question-box">
-                <div class="quiz__question"></div>
-                <div class="progress">
-                    <div class="progress__inner"></div>
-                </div>
-                <div class="quiz__tracker"></div>
-            </div>
-            <div class="quiz__choices">
-                <button class="btn quiz__choice"></button>
-                <button class="btn quiz__choice"></button>
-                <button class="btn quiz__choice"></button>
-                <button class="btn quiz__choice"></button>
-            </div>
-        </section>
-        <button id="start-btn">Start</button>
+      <section class="quiz hide">
+        <!-- Placeholder div for SVG-circle with animation -->
+        <div class="countdown">10</div>
+        <div class="quiz__question-box">
+          <div class="quiz__question"></div>
+          <div class="progress">
+            <div class="progress__inner"></div>
+          </div>
+          <div class="quiz__tracker"></div>
+        </div>
+        <div class="quiz__choices">
+          <button class="btn quiz__choice"></button>
+          <button class="btn quiz__choice"></button>
+          <button class="btn quiz__choice"></button>
+          <button class="btn quiz__choice"></button>
+        </div>
+      </section>
+      <button id="start-btn" class="btn">Start</button>
     </main>
-    <br class="solid">
+    <br class="solid" />
     <footer>
-        <p>A quiz developed by Time Keepers</p>
+      <p>A quiz developed by Time Keepers</p>
     </footer>
     <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js" type="module"></script>
     <script src="/scripts/app.js" type="module"></script>
-</body>
+  </body>
 </html>

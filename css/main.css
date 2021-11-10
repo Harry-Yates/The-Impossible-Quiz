@@ -1,21 +1,24 @@
 :root {
-  --clr-primary: #171717;
-  --clr-secondary: #efefef;
-  --clr-accent: ...;
-  --ff-primary: ...;
-  --ff-secondary: ...;
-  --fs-small: ...;
-  --fs-medium: ...;
-  --fs-large: ...;
-  --fs-largest: ...;
-  --fw-thin: ...;
-  --fw-normal: ...;
-  --fw-bold: ...;
+  --clr-primary: #5d5fef;
+  --clr-secondary: #7e7fd6;
+  --clr-tertiary: #efa65d;
+  --clr-accent: #b1acac;
+  --clr-black: #171717;
+  --clr-white: #efefef;
+  --ff-primary: #efefef;
+  --ff-secondary: #b1acac;
+  --fs-small: 0.625rem;
+  --fs-medium: 1rem;
+  --fs-large: 2rem;
+  --fs-largest: 3rem;
+  --fw-thin: 300;
+  --fw-normal: 500;
+  --fw-bold: 700;
 }
 
 body {
-  background: var(--clr-primary);
-  color: var(--clr-secondary);
+  background: var(--clr-white);
+  color: var(--clr-accent);
 }
 
 main {
@@ -26,6 +29,20 @@ main {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1em 1.5em;
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  font-weight: var(--fw-bold);
+  letter-spacing: 1px;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 2px 2px black, -2px -2px black;
+  background: linear-gradient(to left, #5d5fef, #7e7fd6);
+  color: var(--ff-primary);
 }
 
 .hamburger {

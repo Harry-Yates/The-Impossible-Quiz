@@ -1,22 +1,26 @@
 :root {
+  // Colors
+  --clr-primary: #5d5fef;
+  --clr-secondary: #7e7fd6;
+  --clr-tertiary: #efa65d;
+  --clr-accent: #b1acac;
 
-    // Colors
-    --clr-primary: #171717;
-    --clr-secondary: #efefef;
-    --clr-accent: ...;
+  // B&W Primary
+  --clr-black: #171717;
+  --clr-white: #efefef;
 
-    // Font family
-    --ff-primary: ...;
-    --ff-secondary: ...;
+  // Font family
+  --ff-primary: #efefef;
+  --ff-secondary: #b1acac;
 
-    // Font size
-    --fs-small: ...;
-    --fs-medium: ...;
-    --fs-large: ...;
-    --fs-largest: ...;
+  // Font size
+  --fs-small: 0.625rem;
+  --fs-medium: 1rem;
+  --fs-large: 2rem;
+  --fs-largest: 3rem;
 
-    // Font weight
-    --fw-thin: ...;
-    --fw-normal: ...;
-    --fw-bold: ...;
+  // Font weight
+  --fw-thin: 300;
+  --fw-normal: 500;
+  --fw-bold: 700;
 }
