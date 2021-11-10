@@ -32,7 +32,7 @@ Our focus on the project was group learnings, so although we completed the core 
 
 ### :man_student: Learnings:
 
-- Deeper understanding of JS
+- Deeper understanding of JS.
 - Vastly improved folder structure and approach to working with SCSS.
 - Improved use of Git Hub - worked smoothly on separate branches.
 - Use of Figma was efficient and quick.
