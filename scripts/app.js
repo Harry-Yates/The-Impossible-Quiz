@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
-import { getFirestore, collection, addDoc, doc, deleteDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -59,7 +59,7 @@ async function restartGame() {
   questions = await getQuestions();
 
   //Shuffle questions
-  // shuffleArray(questions);
+  shuffleArray(questions);
 
   // Reset question index and score
   currentQuestionIndex = 0;
@@ -91,7 +91,7 @@ function createModal() {
   return modal;
 }
 
-function setScoreText(textContainer) {
+function setScoreText() {
   // Set different text depending on score
   return `Your score was 
   ${currentScore}
@@ -115,6 +115,8 @@ function outputQuestion(question) {
     answerButton.classList.add("btn");
     answerButton.classList.add("quiz__choice");
 
+    quizChoices.appendChild(answerButton);
+
     answerButton.addEventListener("click", e => {
       // Update score if answer was correct;
       checkIfCorrectAnswer(e, answer);
@@ -127,7 +129,8 @@ function outputQuestion(question) {
       // Disable click on buttons in wait for next question
       const answerButtons = document.querySelectorAll(".quiz__choice");
       answerButtons.forEach((button) => {
-        disableButton(button);
+        // Disable click on all buttons
+        button.disabled = true;
       });
 
       // Set next question
@@ -135,24 +138,17 @@ function outputQuestion(question) {
         nextQuestion();
       }, 2000);
     });
-    quizChoices.appendChild(answerButton);
   });
 }
 
-function disableButton(button) {
-  button.disabled = true;
-}
-
 function nextQuestion() {
-  // Clear timer interval from running
-  // clearInterval(interval);
 
   // If we have any questions left
   if (currentQuestionIndex < questions.length) {
     // Display question progress
     updateProgress();
     // Start timer running for ten seconds
-    timer(5);
+    timer(10);
 
     // Output current question
     outputQuestion(questions[currentQuestionIndex]);
@@ -201,7 +197,7 @@ function timer(seconds) {
 
       const answerButtons = document.querySelectorAll(".quiz__choice");
       answerButtons.forEach((button) => {
-        disableButton(button);
+        button.disabled = true;
       });
 
       // Set next question
