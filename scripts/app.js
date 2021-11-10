@@ -115,9 +115,9 @@ function outputQuestion(question) {
     answerButton.classList.add("btn");
     answerButton.classList.add("quiz__choice");
 
-    answerButton.addEventListener("click", () => {
+    answerButton.addEventListener("click", e => {
       // Update score if answer was correct;
-      checkIfCorrectAnswer(answer);
+      checkIfCorrectAnswer(e, answer);
       // Increase index of current question
       currentQuestionIndex++;
 
@@ -152,7 +152,7 @@ function nextQuestion() {
     // Display question progress
     updateProgress();
     // Start timer running for ten seconds
-    timer(500);
+    timer(5);
 
     // Output current question
     outputQuestion(questions[currentQuestionIndex]);
@@ -163,12 +163,14 @@ function nextQuestion() {
   }
 }
 
-function checkIfCorrectAnswer(answer) {
-  console.log(answer);
+function checkIfCorrectAnswer(e, answer) {
+  // console.log(answer);
   if (answer.correct === true) {
     currentScore++;
+    e.target.classList.add('right');
     console.log("right answer");
   } else {
+    e.target.classList.add('wrong');
     console.log("wrong answer");
   }
 }

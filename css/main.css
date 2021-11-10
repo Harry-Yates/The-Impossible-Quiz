@@ -67,6 +67,18 @@ button {
   transform: scale(1.025);
 }
 
+.btn:disabled {
+  background: var(--clr-accent);
+}
+
+.right {
+  background: linear-gradient(to left, #17be79, #14dd9a) !important;
+}
+
+.wrong {
+  background: linear-gradient(to left, #c52121, #eb3d3d) !important;
+}
+
 .modal {
   background: var(--clr-white);
   position: absolute;
@@ -113,6 +125,7 @@ p {
   margin-bottom: 0.5rem;
 }
 .progress__inner {
+  transition: all 0.5s ease-out;
   background: var(--clr-primary);
   height: 100%;
   width: 50%;

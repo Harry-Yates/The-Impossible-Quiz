@@ -11,7 +11,9 @@
   border-radius: 5px;
   background: white;
   margin-bottom: 0.5rem;
+
   &__inner {
+    transition: all .5s ease-out;
     background: var(--clr-primary);
     height: 100%;
     width: 50%;
