@@ -16,5 +16,15 @@
 
 .btn:hover,
 .btn:focus {
-  transform: scale(1.025);
+    transform: scale(1.025);
+}
+
+.btn:disabled {
+    background: var(--clr-accent);
+}
+.right {
+    background: linear-gradient(to left, #17be79, #14dd9a) !important;
+}
+.wrong {
+    background: linear-gradient(to left, #c52121, #eb3d3d) !important;
 }
