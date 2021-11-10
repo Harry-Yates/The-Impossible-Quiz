@@ -28,7 +28,7 @@ A nice to was to have a 'modifier devil' that would make the straightforward qui
 
 Modifiers would blur answers, add confusing animations and mess with the quiz user.
 
-Our focus on the project was group learnings, so although we completed the core or the brief, we ran out of time to add our evil modifiers.
+Our focus on the project was group learnings, so although we completed the core brief, we ran out of time to add our evil modifiers.
 
 ### :man_student: Learnings:
 
