@@ -107,6 +107,7 @@ function outputQuestion(question) {
   quizChoices.innerHTML = "";
   let q = question.question;
   let answers = question.answers;
+  shuffleArray(answers);
 
   quizQuestion.innerText = q;
   answers.forEach((answer) => {
@@ -118,6 +119,9 @@ function outputQuestion(question) {
     quizChoices.appendChild(answerButton);
 
     answerButton.addEventListener("click", e => {
+      // Give class of clicked
+      e.target.classList.add('clicked');
+
       // Update score if answer was correct;
       checkIfCorrectAnswer(e, answer);
       // Increase index of current question
