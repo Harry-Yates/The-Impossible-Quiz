@@ -1,4 +1,4 @@
-# The Impossilbe Quiz
+# The Impossible Quiz
 
 ---
 
