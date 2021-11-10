@@ -1,0 +1,14 @@
+.countdown {
+  height: 5rem;
+  width: 5rem;
+  background: transparent;
+  color: var(--clr-accent);
+  border: 5px solid var(--clr-primary);
+  border-radius: 50%;
+  font-size: var(--fs-large);
+  font-weight: var(--fw-bolder);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}

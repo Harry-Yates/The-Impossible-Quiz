@@ -1,8 +1,14 @@
 body {
   background: var(--clr-white);
   color: var(--clr-accent);
+  height: 100vh;
+  width: 100vw;
 }
 
 main {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }

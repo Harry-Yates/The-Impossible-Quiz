@@ -1,26 +1,28 @@
 :root {
   // Colors
+  --clr-black: #171717;
+  --clr-white: #f9f6fc;
+
   --clr-primary: #5d5fef;
   --clr-secondary: #7e7fd6;
   --clr-tertiary: #efa65d;
   --clr-accent: #b1acac;
 
-  // B&W Primary
-  --clr-black: #171717;
-  --clr-white: #efefef;
+  --clr-text-primary: #efefef;
+  --clr-text-secondary: #b1acac;
 
-  // Font family
-  --ff-primary: #efefef;
-  --ff-secondary: #b1acac;
+  --ff-primary: "Poppins", sans-serif;
+  --ff-secondary: ...;
 
   // Font size
-  --fs-small: 0.625rem;
+  --fs-small: 0.8rem;
   --fs-medium: 1rem;
-  --fs-large: 2rem;
+  --fs-large: 1.4rem;
   --fs-largest: 3rem;
 
   // Font weight
   --fw-thin: 300;
   --fw-normal: 500;
   --fw-bold: 700;
+  --fw-bolder: 900;
 }

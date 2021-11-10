@@ -93,7 +93,9 @@ function createModal() {
 
 function setScoreText(textContainer) {
   // Set different text depending on score
-  return `Your score was ${currentScore}😈`;
+  return `Your score was 
+  ${currentScore}
+  😈`;
 }
 
 function showModal() {
@@ -150,7 +152,7 @@ function nextQuestion() {
     // Display question progress
     updateProgress();
     // Start timer running for ten seconds
-    timer(5);
+    timer(500);
 
     // Output current question
     outputQuestion(questions[currentQuestionIndex]);
