@@ -10,3 +10,9 @@ footer {
     font-weight: var(--fw-bold);
   }
 }
+
+@media (max-width: 375px) {
+  footer {
+    display: none;
+  }
+}

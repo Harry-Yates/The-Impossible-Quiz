@@ -160,6 +160,11 @@ footer span {
   font-weight: var(--fw-bold);
 }
 
+@media (max-width: 375px) {
+  footer {
+    display: none;
+  }
+}
 .quiz {
   display: flex;
   flex-direction: column;
